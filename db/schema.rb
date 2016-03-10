@@ -11,15 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310145554) do
+ActiveRecord::Schema.define(version: 20160310150446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
+    t.string   "slug",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "accounts", ["slug"], name: "index_accounts_on_slug", unique: true, using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "account_id", null: false
+    t.string   "name",       null: false
+    t.string   "slug",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "projects", ["account_id", "slug"], name: "index_projects_on_account_id_and_slug", unique: true, using: :btree
+  add_index "projects", ["account_id"], name: "index_projects_on_account_id", using: :btree
+  add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
+
+  add_foreign_key "projects", "accounts"
 end

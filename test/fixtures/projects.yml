@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: ACME
+  name: Project One
+  slug: project_one
+
+two:
+  account: ACME
+  name: Project Two
+  slug: project_two
