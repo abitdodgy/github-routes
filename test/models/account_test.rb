@@ -8,4 +8,12 @@ class AccountTest < ActiveSupport::TestCase
   should have_db_index(:slug)
 
   should have_many(:projects)
+
+  should validate_presence_of(:name)
+
+  test "if sets slug before_save" do
+    account = Account.new(name: "Hello World")
+    account.save!
+    assert_equal "hello-world", account.slug
+  end
 end

@@ -13,10 +13,9 @@ class ProjectTest < ActiveSupport::TestCase
   should validate_presence_of(:name)
 
   test "adds slug before saving" do
-    project = Project.new(name: "Hello World")
-    project.stub :save, project do
-      project.save
-      assert_equal "hello_world", project.slug
-    end
+    account = accounts(:acme)
+    project = account.projects.build(name: "Hello World")
+    project.save
+    assert_equal "hello-world", project.slug
   end
 end

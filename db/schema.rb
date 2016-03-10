@@ -37,5 +37,5 @@ ActiveRecord::Schema.define(version: 20160310150446) do
   add_index "projects", ["account_id"], name: "index_projects_on_account_id", using: :btree
   add_index "projects", ["slug"], name: "index_projects_on_slug", using: :btree
 
-  add_foreign_key "projects", "accounts"
+  add_foreign_key "projects", "accounts", on_delete: :cascade
 end
