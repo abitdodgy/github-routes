@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Account.delete_all
+Account.create(name: 'ACME', slug: 'acme')
+
+Project.delete_all
+Account.first.projects.create([{ name: 'Project One', slug: 'project_one' }, { name: 'Project Two', slug: 'project_two' }])

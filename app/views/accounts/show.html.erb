@@ -1,0 +1,11 @@
+<h1>Account: <%= @account.name %></h1>
+
+<h3>Projects</h3>
+
+<ul>
+  <% @account.projects.each do |project| %>
+    <li><%= link_to project.name, [@account, project] %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Project", [:new, @account, :project] %>
