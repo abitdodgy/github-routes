@@ -8,4 +8,10 @@
   <% end %>
 </ul>
 
+<ul>
+  <li><%= link_to "Edit", [:edit, @account] %></li>
+  <li><%= link_to "Delete", @account, method: :delete %></li>
+</ul>
+
 <%= link_to "New Project", [:new, @account, :project] %>
+<%= link_to "Back to Accounts", accounts_path %>
