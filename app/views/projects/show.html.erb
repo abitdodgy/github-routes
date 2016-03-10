@@ -1,0 +1,3 @@
+<h1>Account: <%= link_to current_account.name, current_account %></h1>
+<h3>Project: <%= link_to @project.name, [current_account, @project] %></h1>
+<p><%= link_to "Edit", [:edit, current_account, @project] %></p>

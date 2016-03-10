@@ -1,0 +1,6 @@
+<h1>Account: <%= link_to current_account.name, current_account %></h1>
+
+<h3>NEW PROJECT</h3>
+
+<%= render 'form', object: [current_account, @project] %>
+
