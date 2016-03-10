@@ -14,4 +14,9 @@ class AccountsControllerTest < ActionController::TestCase
     get :show, { id: @account }
     assert_response :success
   end
+
+  test "GET #edit" do
+    get :edit, id: @account
+    assert_response :success
+  end
 end
